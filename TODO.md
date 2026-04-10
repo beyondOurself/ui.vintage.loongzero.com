@@ -8,6 +8,7 @@
 - [ ] 补全各功能独立 HTML（home / 列表或分类 / me 等，见 PRD）与 `common.css`（如需）
 
 ## 已完成
+- [x] `orders.html`（maillard / warm-earth）：订单操作按钮文案 `whitespace-nowrap` + 按钮组 `shrink-0`
 - [x] `cart.html`（maillard / warm-earth）：底部导航贴底，结算栏固定在导航上方并留出安全区
 - [x] `detail.html`（maillard / warm-earth）：购物车、购买按钮前增加图标（`fa-cart-plus` / `fa-bag-shopping`）
 - [x] 初始化新项目模版文件
