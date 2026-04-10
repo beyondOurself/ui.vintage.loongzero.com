@@ -6,7 +6,7 @@
 |------|------|------|
 | 运行时 | 纯静态 HTML | 无 Node/Vite 构建；GitHub Pages 等静态托管即可 |
 | 样式 | **Tailwind CSS**（`cdn.tailwindcss.com`） | Play CDN，按需 utility；主题差异辅以各主题 `styles.css` |
-| 图标 | **Font Awesome 6.4**（cdnjs） | 全站统一 `fa` 图标集 |
+| 图标 | **本地单文件 SVG**（`icons/*.svg`，图源 Iconify `fa6-solid`，经 better-icons MCP 拉取） | 子页 `better-icons.css` + `<svg><use href="../../icons/bi-….svg#icon"/></svg>` |
 | 字体 | **Google Fonts — Noto Sans SC** | 子页引入；中文排版与标题字重 |
 | 脚本 | 原生 ES5/ES6 少量脚本 | `theme-switcher.js`、`scrollbar-control.js` |
 | 图片 | **Unsplash** 等外链 | 原型占位；注意版权与外链稳定性 |
@@ -16,6 +16,8 @@
 ```
 ui.loongzero.com/
 ├── index.html              # 展示壳：手机框网格 + iframe + 主题切换 UI
+├── icons/                  # 单图标 SVG（`bi-*.svg`，`<g id="icon">` 供 `<use href="…#icon">`）
+├── iconfont/               # `iconfont.css`（Vant CDN）、`better-icons.css`（`.bi-svg`）
 ├── themes.json             # 主题注册表（id、路径、预览色、默认主题）
 ├── theme-switcher.js       # 读 themes.json、切主题、写 localStorage、改 iframe src
 ├── scrollbar-control.js    # 子页内：滚动时短暂显示滚动条相关 class（与 iframe 内文档配合）
@@ -74,7 +76,7 @@ ui.loongzero.com/
 
 ### 子页 HTML（`themes/*/*.html`）
 
-- 统一引入 Tailwind、Font Awesome、`styles.css`、`scrollbar-control.js`。
+- 统一引入 Tailwind、`iconfont/better-icons.css`（及按需 `icons/*.svg`）、`styles.css`、`scrollbar-control.js`；部分页另引 `iconfont/iconfont.css`（Vant）。
 - 链接里使用 `?v=__ASSET_VERSION__` 占位（与入口页的版本策略配合时需注意：独立打开子页时该串为字面量，可按部署流程替换或改为固定版本号）。
 
 ### `styles.css`（按主题）

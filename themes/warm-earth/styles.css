@@ -296,3 +296,20 @@ body::-webkit-scrollbar-thumb,
 .vintage-muted {
     color: #857C72; /* SMOKY TROUT 中灰色 */
 }
+
+i.fas,
+i.far,
+i.fab {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", sans-serif !important;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+}
+
+i.fas {
+    font-weight: 900 !important;
+}
+
+i.far {
+    font-weight: 400 !important;
+}

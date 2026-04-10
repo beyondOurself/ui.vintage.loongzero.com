@@ -1,0 +1,24 @@
+{
+  "name": "ui.loongzero.com",
+  "version": "1.0.0",
+  "description": "- 待补充",
+  "main": "scrollbar-control.js",
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beyondOurself/vintage.loongzero.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/beyondOurself/vintage.loongzero.com/issues"
+  },
+  "homepage": "https://github.com/beyondOurself/vintage.loongzero.com#readme"
+}
