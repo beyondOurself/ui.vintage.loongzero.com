@@ -19,7 +19,7 @@
     </header>
 
     <!-- 购物车商品列表 -->
-    <main class="pb-32">
+    <main class="pb-52">
         <div class="px-4 py-4 space-y-3">
             <!-- 商品项1 -->
             <div class="card-shadow p-3">
@@ -104,8 +104,8 @@
         </div>
     </main>
 
-    <!-- 底部结算栏 -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 safe-bottom shadow-lg">
+    <!-- 底部结算栏（在底部导航之上） -->
+    <div class="fixed left-0 right-0 z-40 bg-white border-t border-gray-100 shadow-lg" style="bottom: calc(3.5rem + env(safe-area-inset-bottom, 0px));">
         <div class="px-4 py-3">
             <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center gap-2">
@@ -121,7 +121,7 @@
     </div>
 
     <!-- 底部导航 -->
-    <nav class="bottom-nav fixed bottom-16 left-0 right-0">
+    <nav class="bottom-nav fixed bottom-0 left-0 right-0 z-50 safe-bottom">
         <div class="flex items-center justify-around py-2">
             <div class="flex flex-col items-center">
                 <i class="fas fa-home text-[#857C72] text-base mb-1"></i>
