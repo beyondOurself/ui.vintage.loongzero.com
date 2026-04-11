@@ -1,0 +1,38 @@
+# node
+node_modules/
+npm-debug.log*
+yarn.lock
+pnpm-lock.yaml
+package-lock.json
+
+# build outputs
+dist/
+build/
+*.tmp
+*.log
+
+# system
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# local
+.env*
+local.*
+.env.local
+.uno.css
+
+# test/coverage
+coverage/
+*.lcov
+
+# OS/files
+ehthumbs.db
+
+# misc
+*.bak
+*.swp
+*.psd

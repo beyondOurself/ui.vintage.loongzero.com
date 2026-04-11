@@ -4,10 +4,14 @@
   "description": "- 待补充",
   "main": "scrollbar-control.js",
   "devDependencies": {
-    "@resvg/resvg-js": "^2.6.2"
+    "@resvg/resvg-js": "^2.6.2",
+    "@unocss/reset": "^66.6.8",
+    "unocss": "^66.6.8"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "uno": "unocss \"./**/*.html\" -o uno.css --split-css false",
+    "uno:watch": "unocss \"./**/*.html\" -o uno.css --split-css false -w"
   },
   "repository": {
     "type": "git",
