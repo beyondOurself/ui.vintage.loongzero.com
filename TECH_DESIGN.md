@@ -4,8 +4,8 @@
 
 | 类别 | 选型 | 说明 |
 |------|------|------|
-| 运行时 | 纯静态 HTML | 无 Node/Vite 构建；GitHub Pages 等静态托管即可 |
-| 样式 | **Tailwind CSS**（`cdn.tailwindcss.com`） | Play CDN，按需 utility；主题差异辅以各主题 `styles.css` |
+| 运行时 | 纯静态 HTML | 交付物为静态文件；GitHub Pages 等托管即可。**样式**：本地用 UnoCSS CLI（`npm run uno`）扫描 `**/*.html` 生成根目录 `uno.css`，无 Vite/Webpack |
+| 样式 | **UnoCSS**（`presetWind3` + `@unocss/reset/tailwind.css`） | **Utility 类名与 Tailwind v3 兼容**；主题差异辅以各主题 `styles.css` |
 | 图标 | **本地单文件 SVG**（`icons/*.svg`，图源 Iconify `fa6-solid`，经 better-icons MCP 拉取） | 子页 `better-icons.css` + `<svg><use href="../../icons/bi-….svg#icon"/></svg>` |
 | 字体 | **Google Fonts — Noto Sans SC** | 子页引入；中文排版与标题字重 |
 | 脚本 | 原生 ES5/ES6 少量脚本 | `theme-switcher.js`、`scrollbar-control.js` |
@@ -16,6 +16,9 @@
 ```
 ui.loongzero.com/
 ├── index.html              # 展示壳：手机框网格 + iframe + 主题切换 UI
+├── uno.css                 # UnoCSS 生成（改 HTML 内 utility 后执行 `npm run uno`；可随仓库提交）
+├── uno.config.ts           # `presetWind3`、内联 `@unocss/reset/tailwind.css` 作 preflight
+├── package.json            # `unocss`、`@unocss/reset`；脚本 `uno` / `uno:watch`
 ├── icons/                  # 单图标 SVG（`bi-*.svg`，`<g id="icon">` 供 `<use href="…#icon">`）
 ├── iconfont/               # `iconfont.css`（Vant CDN）、`better-icons.css`（`.bi-svg`）
 ├── themes.json             # 主题注册表（id、路径、预览色、默认主题）
@@ -76,21 +79,21 @@ ui.loongzero.com/
 
 ### 子页 HTML（`themes/*/*.html`）
 
-- 统一引入 Tailwind、`iconfont/better-icons.css`（及按需 `icons/*.svg`）、`styles.css`、`scrollbar-control.js`；部分页另引 `iconfont/iconfont.css`（Vant）。
+- 统一引入根目录 `uno.css`（相对路径：子页 `../../uno.css`）、`iconfont/better-icons.css`（及按需 `icons/*.svg`）、`styles.css`、`scrollbar-control.js`；部分页另引 `iconfont/iconfont.css`（Vant）。
 - 链接里使用 `?v=__ASSET_VERSION__` 占位（与入口页的版本策略配合时需注意：独立打开子页时该串为字面量，可按部署流程替换或改为固定版本号）。
 
 ### `styles.css`（按主题）
 
-- 定义该主题的 body 背景、标题/价格/卡片等 **非 Tailwind 的设计 token**（如 `.vintage-bg`、`.vintage-price`）。
-- 与 Tailwind 并存：布局与间距以 utility 为主，品牌色与组件质感以 CSS 类补充。
+- 定义该主题的 body 背景、标题/价格/卡片等 **非 utility 的设计 token**（如 `.vintage-bg`、`.vintage-price`）。
+- 与 UnoCSS（Wind3）并存：布局与间距以 **Tailwind 兼容** utility 为主，品牌色与组件质感以 CSS 类补充。
 
 ### 性能与后续迭代
 
 - 多 iframe 同时加载：请求数与图片体积为主要成本；可按需 **懒加载 iframe**（`loading="lazy"` 或进入视口再赋 `src`）。
-- 无打包意味着无 tree-shaking；控制单页 DOM 与外链图尺寸即可。
+- UnoCSS 仅扫描 HTML 中已出现的类生成 CSS；改类名后需重新执行 `npm run uno`。控制单页 DOM 与外链图尺寸即可。
 
 ## 设计协作（Figma）
 
 - 区块语义化（`header` / `section` / 主列表）便于对图层。
-- 间距优先用 Tailwind spacing scale，减少任意像素。
+- 间距优先用 Wind3/Tailwind spacing scale，减少任意像素。
 - 主题扩展时保持 **同一信息架构**（7 屏），仅换视觉 token 与 copy。

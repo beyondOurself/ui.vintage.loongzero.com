@@ -8,9 +8,9 @@
 - 使用场景：单页汇总查看各功能界面；后续导入 Figma 二次编辑
 
 ## 核心需求（来源：初始提示词）
-- 技术：HTML + **Tailwind CSS** 实现全部原型界面；可用 **FontAwesome** 美化。
+- 技术：HTML + 原子类 CSS 实现全部原型界面（**当前仓库**：**UnoCSS** `presetWind3`，utility **与 Tailwind v3 兼容**）；可用 **FontAwesome** 美化。
 - 结构：按功能拆分文件，**一功能一独立 HTML**（如 `home.html`、`games.html`、`me.html`）。
-- 样式：优先 Tailwind；自定义样式放**独立 CSS**，再在 HTML 中引入。
+- 样式：优先 utility 类；自定义样式放**独立 CSS**，再在 HTML 中引入。
 - 入口：`index.html` 为主入口，**不**把所有界面代码堆在一个文件里；用 **iframe** 嵌套各页面，并在 index 上**平铺展示**所有页面。
 - 视觉：界面尽量模拟 **iPhone 15** 真实外观。
 - 资源：页面内图片从 **Unsplash、Pexels** 获取。
@@ -21,5 +21,5 @@
 - iPhone 15 外观与常见 App 布局（参考官方尺寸与圆角等）
 
 ## 风险与约束
-- iframe + 多文件需统一主题与 Tailwind 配置，避免样式割裂。
+- iframe + 多文件需统一引入同一 `uno.css` 与各主题 `styles.css`，避免样式割裂；改 HTML 类名后需 `npm run uno` 重新生成 CSS。
 - 低 TOKEN 与「高保真、多图」需平衡，优先精简 DOM 与重复结构。
