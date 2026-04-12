@@ -25,6 +25,7 @@
 - 保持文件结构简洁，目录命名清晰，避免多级嵌套。
 - 推荐使用 **UnoCSS（Wind3，Tailwind v3 兼容 utility）** 原子类为主，定制样式集中于各主题 `styles.css`；改类名后执行 `npm run uno` 更新 `uno.css`。
 - 生成的图标风格要统一，保持全站视觉风格一致。
+- `icons/` 内 SVG 须兼容 [iconfont](https://www.iconfont.cn/) 上传：单色、`fill="#000000"`（不用 `currentColor`）、结构为 `<svg><path/></svg>`、无多余包裹 `<g>`、UTF-8 无 BOM；better-icons 等下载后按此整理再入库。
 - 代码提交前确保通过本地检查，避免低级语法错误和拼写问题。
 
 ## 提交规范
