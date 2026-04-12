@@ -10,6 +10,7 @@
 ## 已完成
 - [x] 样式由 Tailwind Play CDN 迁到 **UnoCSS**：`uno.config.ts`（`presetWind3` + `@unocss/reset/tailwind.css`）、`uno.css`、HTML 链 `uno.css`；`npm run uno` / `uno:watch`
 - [x] 底部 Tab：`icons/nav/{warm-earth,maillard}/*-{on,off}.png` 由 `icons/bi-*.svg`（better-icons / fa6-solid）经 `icons/nav/render-nav-png.mjs`（`@resvg/resvg-js`）按主题色栅格化；页面用 `<img>` 引用
+- [x] 微信小程序端 tab 位图：`npm run tab:wx`（`icons/nav/render-tab-bar-wx.mjs`，严格 **81×81px、≤40KB**，图形 ≤60px 居中；`sharp` + `resvg`）同步写入 `../app.vintage.loongzero.com/static/tab/`
 - [x] `orders.html`（maillard / warm-earth）：订单操作按钮文案 `whitespace-nowrap` + 按钮组 `shrink-0`
 - [x] `cart.html`（maillard / warm-earth）：底部导航贴底，结算栏固定在导航上方并留出安全区
 - [x] `detail.html`（maillard / warm-earth）：购物车、购买按钮前增加图标（`fa-cart-plus` / `fa-bag-shopping`）
