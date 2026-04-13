@@ -84,11 +84,6 @@ class ThemeSwitcher {
             phoneFrames.forEach(frame => {
                 frame.style.background = theme.preview.primaryColor;
             });
-            
-            const notches = document.querySelectorAll('.notch');
-            notches.forEach(notch => {
-                notch.style.background = theme.preview.primaryColor;
-            });
         }
 
         // 更新主题选择器的激活状态

@@ -8,6 +8,8 @@
 - [ ] 补全各功能独立 HTML（home / 列表或分类 / me 等，见 PRD）与 `common.css`（如需）
 
 ## 已完成
+- [x] `index.html`：「平台切换」与「切换风格」同款固定按钮 + 浮层面板；选项复用主题色块 + 标题 + 说明 + 选中描边；小程序模式顶栏与胶囊同上
+- [x] `index.html`：去掉手机外框顶部「刘海」`.notch`；`theme-switcher.js` 同步移除对 `.notch` 的着色
 - [x] `icons/bi-*.svg`：`symbol#icon` + 根级 `<use href="#icon">` + `fill="currentColor"`（否则 Resvg 导出的底部 Tab PNG 空白；外链 `<use>` 在 file:// 等环境常失效）
 - [x] 主题 `detail` / `cart` / `orders`：`bi-svg` 用外链 `<svg><use href="…/bi-*.svg#icon">`（`symbol` 内 `fill="currentColor"`）继承 `text-[#…]`；不用 `<img src=".svg">`（无法着色）
 - [x] `themes/maillard/home.html`、`detail.html`：从 `warm-earth` 同步中文与结构并按美拉德色值替换（修复误存为 `???` 的文案与 ¥）
