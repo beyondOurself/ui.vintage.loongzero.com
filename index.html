@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -16,52 +16,6 @@
             box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3), inset 0 0 0 2px rgba(255,255,255,0.1);
             position: relative;
         }
-        .proto-main {
-            padding: 32px 24px 48px;
-        }
-        .platform-switch-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            background: #351D14;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .platform-switch-btn:hover {
-            background: #532D1C;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-        }
-        .platform-switch-btn:active {
-            transform: translateY(0);
-        }
-        .platform-panel {
-            position: fixed;
-            top: 70px;
-            left: 20px;
-            z-index: 999;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-            padding: 20px;
-            min-width: 280px;
-            max-width: 320px;
-            display: none;
-        }
-        .platform-panel.show {
-            display: block;
-        }
         .phone-screen {
             width: 100%;
             height: 100%;
@@ -69,104 +23,6 @@
             overflow: hidden;
             background: #ffffff;
             position: relative;
-        }
-        body.platform-mp .phone-screen {
-            display: flex;
-            flex-direction: column;
-        }
-        .mp-chrome {
-            display: none;
-            flex-shrink: 0;
-            background: #ededed;
-        }
-        body.platform-mp .mp-chrome {
-            display: block;
-            border-radius: 40px 40px 0 0;
-            overflow: hidden;
-        }
-        .mp-status {
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 600;
-            color: #000;
-            letter-spacing: -0.02em;
-        }
-        .mp-nav {
-            height: 44px;
-            display: flex;
-            align-items: center;
-            padding: 0 6px 0 12px;
-            background: #ededed;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-            box-sizing: border-box;
-        }
-        .mp-nav-left {
-            width: 32px;
-            flex-shrink: 0;
-        }
-        .mp-nav-title {
-            flex: 1;
-            text-align: center;
-            font-size: 17px;
-            font-weight: 600;
-            color: #000;
-            padding: 0 8px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .mp-nav-right {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            min-width: 96px;
-        }
-        .mp-capsule {
-            width: 87px;
-            height: 32px;
-            border-radius: 16px;
-            border: 1px solid rgba(0, 0, 0, 0.14);
-            background: rgba(255, 255, 255, 0.72);
-            display: flex;
-            align-items: stretch;
-            box-sizing: border-box;
-        }
-        .mp-capsule-part {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 0;
-        }
-        .mp-capsule-split {
-            width: 1px;
-            margin: 6px 0;
-            background: rgba(0, 0, 0, 0.12);
-            flex-shrink: 0;
-        }
-        .mp-dots {
-            display: flex;
-            gap: 3px;
-            align-items: center;
-            justify-content: center;
-        }
-        .mp-dots span {
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: #1a1a1a;
-            display: block;
-        }
-        .mp-target {
-            width: 19px;
-            height: 19px;
-            border: 2px solid #1a1a1a;
-            border-radius: 50%;
-            box-sizing: border-box;
         }
         iframe {
             width: 100%;
@@ -181,12 +37,6 @@
             scrolling: auto;
             -ms-overflow-style: none;
             scrollbar-width: none;
-        }
-        body.platform-mp .phone-screen iframe {
-            flex: 1 1 0;
-            min-height: 0;
-            height: auto;
-            border-radius: 0 0 40px 40px;
         }
         
         /* 完全隐藏滚动条 */
@@ -265,8 +115,7 @@
             padding-bottom: 12px;
             border-bottom: 1px solid #E8E5E0;
         }
-        .theme-option,
-        .platform-option {
+        .theme-option {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -275,15 +124,11 @@
             cursor: pointer;
             transition: all 0.2s ease;
             margin-bottom: 8px;
-            border: 2px solid transparent;
-            box-sizing: border-box;
         }
-        .theme-option:hover,
-        .platform-option:hover {
+        .theme-option:hover {
             background: #F5F3F0;
         }
-        .theme-option.active,
-        .platform-option.active {
+        .theme-option.active {
             background: #F5F3F0;
             border: 2px solid #876635;
         }
@@ -317,207 +162,81 @@
         }
     </style>
 </head>
-    <body class="platform-app bg-[#F5F3F0] min-h-screen" style="margin:0;padding:0;">
+    <body class="bg-[#F5F3F0] p-8 min-h-screen" style="margin:0;padding:0;">
         <script>window.__ASSET_VERSION__ = Date.now().toString(36);</script>
-        <button type="button" class="platform-switch-btn" id="platform-toggle-btn" onclick="togglePlatformPanel()">
-            <i class="van-icon van-icon-phone-o"></i>
-            <span>平台切换</span>
-        </button>
-        <div class="platform-panel" id="platform-panel">
-            <div class="theme-panel-title">选择运行平台</div>
-            <div class="platform-option active" data-platform="app" role="button" tabindex="0">
-                <div class="theme-preview" style="background: #F5F3F0">
-                    <div class="theme-color-dot" style="background: #351D14"></div>
-                    <div class="theme-color-dot" style="background: #876635"></div>
-                </div>
-                <div class="theme-info">
-                    <div class="theme-name">App</div>
-                    <div class="theme-desc">独立应用 · 全屏页面导航</div>
-                </div>
-            </div>
-            <div class="platform-option" data-platform="mp" role="button" tabindex="0">
-                <div class="theme-preview" style="background: #E8F4EC">
-                    <div class="theme-color-dot" style="background: #07C160"></div>
-                    <div class="theme-color-dot" style="background: #EDEDED"></div>
-                </div>
-                <div class="theme-info">
-                    <div class="theme-name">小程序</div>
-                    <div class="theme-desc">微信小程序 · 胶囊与系统顶栏</div>
-                </div>
-            </div>
-        </div>
-
-        <button type="button" class="theme-switch-btn" id="theme-toggle-btn" onclick="toggleThemePanel()">
+        <!-- 主题切换按钮 -->
+        <button class="theme-switch-btn" id="theme-toggle-btn" onclick="toggleThemePanel()">
             <i class="van-icon van-icon-brush-o"></i>
             <span>切换风格</span>
         </button>
         
+        <!-- 主题选择面板 -->
         <div class="theme-panel" id="theme-panel">
             <div class="theme-panel-title">选择风格主题</div>
             <div id="theme-selector"></div>
         </div>
 
-        <div class="proto-main">
-                <div class="max-w-7xl mx-auto">
-                    <h1 class="text-3xl font-medium mb-8 text-center text-[#2D1C13] tracking-wider uppercase">Vintage App 原型展示</h1>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                        <div class="mx-auto">
-                            <div class="phone-frame relative">
-                                <div class="phone-screen">
-                                    <div class="mp-chrome">
-                                        <div class="mp-status"><span class="mp-time">9:41</span></div>
-                                        <div class="mp-nav">
-                                            <div class="mp-nav-left"></div>
-                                            <div class="mp-nav-title">首页</div>
-                                            <div class="mp-nav-right">
-                                                <div class="mp-capsule">
-                                                    <div class="mp-capsule-part"><div class="mp-dots"><span></span><span></span><span></span></div></div>
-                                                    <div class="mp-capsule-split"></div>
-                                                    <div class="mp-capsule-part"><div class="mp-target"></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <iframe src="themes/warm-earth/home.html" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
-                                </div>
-                            </div>
-                            <div class="phone-label">首页</div>
-                        </div>
-                        <div class="mx-auto">
-                            <div class="phone-frame relative">
-                                <div class="phone-screen">
-                                    <div class="mp-chrome">
-                                        <div class="mp-status"><span class="mp-time">9:41</span></div>
-                                        <div class="mp-nav">
-                                            <div class="mp-nav-left"></div>
-                                            <div class="mp-nav-title">分类</div>
-                                            <div class="mp-nav-right">
-                                                <div class="mp-capsule">
-                                                    <div class="mp-capsule-part"><div class="mp-dots"><span></span><span></span><span></span></div></div>
-                                                    <div class="mp-capsule-split"></div>
-                                                    <div class="mp-capsule-part"><div class="mp-target"></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <iframe src="themes/warm-earth/category.html" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
-                                </div>
-                            </div>
-                            <div class="phone-label">分类</div>
-                        </div>
-                        <div class="mx-auto">
-                            <div class="phone-frame relative">
-                                <div class="phone-screen">
-                                    <div class="mp-chrome">
-                                        <div class="mp-status"><span class="mp-time">9:41</span></div>
-                                        <div class="mp-nav">
-                                            <div class="mp-nav-left"></div>
-                                            <div class="mp-nav-title">商品详情</div>
-                                            <div class="mp-nav-right">
-                                                <div class="mp-capsule">
-                                                    <div class="mp-capsule-part"><div class="mp-dots"><span></span><span></span><span></span></div></div>
-                                                    <div class="mp-capsule-split"></div>
-                                                    <div class="mp-capsule-part"><div class="mp-target"></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <iframe src="themes/warm-earth/detail.html" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
-                                </div>
-                            </div>
-                            <div class="phone-label">商品详情</div>
-                        </div>
-                        <div class="mx-auto">
-                            <div class="phone-frame relative">
-                                <div class="phone-screen">
-                                    <div class="mp-chrome">
-                                        <div class="mp-status"><span class="mp-time">9:41</span></div>
-                                        <div class="mp-nav">
-                                            <div class="mp-nav-left"></div>
-                                            <div class="mp-nav-title">购物车</div>
-                                            <div class="mp-nav-right">
-                                                <div class="mp-capsule">
-                                                    <div class="mp-capsule-part"><div class="mp-dots"><span></span><span></span><span></span></div></div>
-                                                    <div class="mp-capsule-split"></div>
-                                                    <div class="mp-capsule-part"><div class="mp-target"></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <iframe src="themes/warm-earth/cart.html" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
-                                </div>
-                            </div>
-                            <div class="phone-label">购物车</div>
-                        </div>
-                        <div class="mx-auto">
-                            <div class="phone-frame relative">
-                                <div class="phone-screen">
-                                    <div class="mp-chrome">
-                                        <div class="mp-status"><span class="mp-time">9:41</span></div>
-                                        <div class="mp-nav">
-                                            <div class="mp-nav-left"></div>
-                                            <div class="mp-nav-title">搜索</div>
-                                            <div class="mp-nav-right">
-                                                <div class="mp-capsule">
-                                                    <div class="mp-capsule-part"><div class="mp-dots"><span></span><span></span><span></span></div></div>
-                                                    <div class="mp-capsule-split"></div>
-                                                    <div class="mp-capsule-part"><div class="mp-target"></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <iframe src="themes/warm-earth/search.html" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
-                                </div>
-                            </div>
-                            <div class="phone-label">搜索</div>
-                        </div>
-                        <div class="mx-auto">
-                            <div class="phone-frame relative">
-                                <div class="phone-screen">
-                                    <div class="mp-chrome">
-                                        <div class="mp-status"><span class="mp-time">9:41</span></div>
-                                        <div class="mp-nav">
-                                            <div class="mp-nav-left"></div>
-                                            <div class="mp-nav-title">个人中心</div>
-                                            <div class="mp-nav-right">
-                                                <div class="mp-capsule">
-                                                    <div class="mp-capsule-part"><div class="mp-dots"><span></span><span></span><span></span></div></div>
-                                                    <div class="mp-capsule-split"></div>
-                                                    <div class="mp-capsule-part"><div class="mp-target"></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <iframe src="themes/warm-earth/profile.html" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
-                                </div>
-                            </div>
-                            <div class="phone-label">个人中心</div>
-                        </div>
-                        <div class="mx-auto">
-                            <div class="phone-frame relative">
-                                <div class="phone-screen">
-                                    <div class="mp-chrome">
-                                        <div class="mp-status"><span class="mp-time">9:41</span></div>
-                                        <div class="mp-nav">
-                                            <div class="mp-nav-left"></div>
-                                            <div class="mp-nav-title">我的订单</div>
-                                            <div class="mp-nav-right">
-                                                <div class="mp-capsule">
-                                                    <div class="mp-capsule-part"><div class="mp-dots"><span></span><span></span><span></span></div></div>
-                                                    <div class="mp-capsule-split"></div>
-                                                    <div class="mp-capsule-part"><div class="mp-target"></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <iframe src="themes/warm-earth/orders.html" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
-                                </div>
-                            </div>
-                            <div class="phone-label">我的订单</div>
-                        </div>
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-3xl font-medium mb-8 text-center text-[#2D1C13] tracking-wider uppercase">Vintage App 原型展示</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div class="mx-auto">
+                <div class="phone-frame relative">
+                    <div class="phone-screen">
+                        <iframe src="themes/warm-earth/home.html" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
                     </div>
                 </div>
+                <div class="phone-label">首页</div>
+            </div>
+            <div class="mx-auto">
+                <div class="phone-frame relative">
+                    <div class="phone-screen">
+                        <iframe src="themes/warm-earth/category.html" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
+                    </div>
+                </div>
+                <div class="phone-label">分类</div>
+            </div>
+            <div class="mx-auto">
+                <div class="phone-frame relative">
+                    <div class="phone-screen">
+                        <iframe src="themes/warm-earth/detail.html" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
+                    </div>
+                </div>
+                <div class="phone-label">商品详情</div>
+            </div>
+            <div class="mx-auto">
+                <div class="phone-frame relative">
+                    <div class="phone-screen">
+                        <iframe src="themes/warm-earth/cart.html" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
+                    </div>
+                </div>
+                <div class="phone-label">购物车</div>
+            </div>
+            <div class="mx-auto">
+                <div class="phone-frame relative">
+                    <div class="phone-screen">
+                        <iframe src="themes/warm-earth/search.html" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
+                    </div>
+                </div>
+                <div class="phone-label">搜索</div>
+            </div>
+            <div class="mx-auto">
+                <div class="phone-frame relative">
+                    <div class="phone-screen">
+                        <iframe src="themes/warm-earth/profile.html" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
+                    </div>
+                </div>
+                <div class="phone-label">个人中心</div>
+            </div>
+            <div class="mx-auto">
+                <div class="phone-frame relative">
+                    <div class="phone-screen">
+                        <iframe src="themes/warm-earth/orders.html" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
+                    </div>
+                </div>
+                <div class="phone-label">我的订单</div>
+            </div>
         </div>
+    </div>
     
     <script>
         document.write('<script src="theme-switcher.js?v=' + window.__ASSET_VERSION__ + '"><\/script>');
@@ -526,61 +245,17 @@
         // 切换主题面板显示/隐藏
         function toggleThemePanel() {
             const panel = document.getElementById('theme-panel');
-            const pp = document.getElementById('platform-panel');
             panel.classList.toggle('show');
-            if (pp) pp.classList.remove('show');
         }
-        function togglePlatformPanel() {
-            const panel = document.getElementById('platform-panel');
-            const tp = document.getElementById('theme-panel');
-            panel.classList.toggle('show');
-            if (tp) tp.classList.remove('show');
-        }
+        
+        // 点击外部关闭面板
         document.addEventListener('click', (e) => {
-            const themePanel = document.getElementById('theme-panel');
-            const themeBtn = document.getElementById('theme-toggle-btn');
-            const platPanel = document.getElementById('platform-panel');
-            const platBtn = document.getElementById('platform-toggle-btn');
-            if (themePanel && !themePanel.contains(e.target) && themeBtn && !themeBtn.contains(e.target)) {
-                themePanel.classList.remove('show');
-            }
-            if (platPanel && !platPanel.contains(e.target) && platBtn && !platBtn.contains(e.target)) {
-                platPanel.classList.remove('show');
+            const panel = document.getElementById('theme-panel');
+            const btn = document.getElementById('theme-toggle-btn');
+            if (panel && !panel.contains(e.target) && !btn.contains(e.target)) {
+                panel.classList.remove('show');
             }
         });
-        (function () {
-            const KEY = 'vintage_proto_platform';
-            const body = document.body;
-            function setPlatform(p) {
-                const v = p === 'mp' ? 'mp' : 'app';
-                body.classList.remove('platform-app', 'platform-mp');
-                body.classList.add(v === 'mp' ? 'platform-mp' : 'platform-app');
-                try {
-                    localStorage.setItem(KEY, v);
-                } catch (e) {}
-                document.querySelectorAll('.platform-option').forEach((opt) => {
-                    opt.classList.toggle('active', opt.dataset.platform === v);
-                });
-            }
-            document.querySelectorAll('.platform-option').forEach((opt) => {
-                const go = () => {
-                    setPlatform(opt.dataset.platform);
-                    document.getElementById('platform-panel').classList.remove('show');
-                };
-                opt.addEventListener('click', go);
-                opt.addEventListener('keydown', (ev) => {
-                    if (ev.key === 'Enter' || ev.key === ' ') {
-                        ev.preventDefault();
-                        go();
-                    }
-                });
-            });
-            let initial = 'app';
-            try {
-                initial = localStorage.getItem(KEY) || 'app';
-            } catch (e) {}
-            setPlatform(initial);
-        })();
     </script>
 </body>
 </html>
