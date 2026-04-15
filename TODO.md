@@ -1,30 +1,56 @@
-﻿# TODO
+﻿# 进度清单（唯一事实源）
+
+## 使用规则
+- 本文件只记录可执行任务，不记录方案长文与问题结论；方案放 `RESEARCH.md`，长期约束放 `AGENTS.md`。
+- 一个任务在任一时刻只能出现在一个状态分区：`待开发`、`进行中`、`阻塞`、`已完成`，禁止重复挂在多个分区。
+- 任务标题必须使用“编号 + 动词 + 结果”格式，例如：`UI-M-006 补齐订单状态视觉稿`，禁止“页面再调下样式”这类模糊描述。
+- 任务编号采用 `项目-类型-序号`：`UI`=原型项目；`M`=业务页面模块；`C`=组件能力；`S`=样式与资源；`I`=工程基础设施；`D`=文档流程。
+- 编号示例：`UI-M-006`（页面模块）、`UI-C-002`（组件）、`UI-S-003`（样式资源）、`UI-I-001`（工程配置）、`UI-D-001`（文档流程）。
+- 每条任务至少包含 3 个字段：`范围`（影响文件/目录）、`验收`（可验证结果）、必要时补充 `阻塞原因` 与 `需要协作`。
+- 任务变更时只做两件事：移动到新分区 + 更新必要字段；不要在原分区保留旧记录。
+- 完成任务必须能被实际验证（页面可见差异、交互可复现、规范可对照），不能只写“已改完”。
+- 每次批量调整任务后，在“变更记录”补一行日期与动作，保证跨设备协作可追溯。
+
+### 示例（正确）
+- [ ] UI-M-006 补齐订单状态视觉稿
+  - 范围：`themes/warm-earth/orders.html`、`themes/maillard/orders.html`
+  - 验收：待付款、待发货、已完成 3 种状态在两套主题中均有明确视觉区分
+
+### 示例（错误）
+- [ ] 调整订单样式
+  - 问题：目标不明确、无范围、无验收，无法判断是否完成
 
 ## 进行中
-- [ ] 按 PRD/TECH_DESIGN 落地 `index.html` iframe 平铺 + iPhone 15 外框基线
+- [ ] UI-M-001 uni-app x 页面对齐清单维护与差异复核
+  - 范围：`themes/warm-earth/`、`themes/maillard/`
+  - 验收：输出页面级差异清单，标注需 app 端对齐项
 
 ## 待开发
-- [ ] 约定 UnoCSS / 图标（Vant + `icons/*.svg`）引入方式并写 README 运行说明
-- [ ] 补全各功能独立 HTML（home / 列表或分类 / me 等，见 PRD）与 `common.css`（如需）
+- [ ] UI-M-002 搜索页空状态与无结果状态补齐
+  - 范围：`themes/warm-earth/search.html`、`themes/maillard/search.html`
+  - 验收：两套主题均提供空状态与无结果状态视图
+- [ ] UI-M-003 订单页关键状态视觉规范补充
+  - 范围：`themes/warm-earth/orders.html`、`themes/maillard/orders.html`
+  - 验收：待付款、待发货、已完成三类状态视觉一致且可区分
+- [ ] UI-M-004 图标命名与语义映射表整理
+  - 范围：`icons/`
+  - 验收：核心业务图标具备统一命名与页面映射关系
+
+## 阻塞
+- [ ] UI-M-005 最终主题方案冻结
+  - 阻塞原因：产品未确认 warm-earth 与 maillard 的默认线上方案
+  - 需要协作：产品与设计确认默认主题及切换策略
 
 ## 已完成
-- [x] `index.html`：去掉手机外框顶部「刘海」`.notch`；`theme-switcher.js` 同步移除对 `.notch` 的着色
-- [x] `icons/bi-*.svg`：`symbol#icon` + 根级 `<use href="#icon">` + `fill="currentColor"`（否则 Resvg 导出的底部 Tab PNG 空白；外链 `<use>` 在 file:// 等环境常失效）
-- [x] 主题 `detail` / `cart` / `orders`：`bi-svg` 用外链 `<svg><use href="…/bi-*.svg#icon">`（`symbol` 内 `fill="currentColor"`）继承 `text-[#…]`；不用 `<img src=".svg">`（无法着色）
-- [x] `themes/maillard/home.html`、`detail.html`：从 `warm-earth` 同步中文与结构并按美拉德色值替换（修复误存为 `???` 的文案与 ¥）
-- [x] 样式由 Tailwind Play CDN 迁到 **UnoCSS**：`uno.config.ts`（`presetWind3` + `@unocss/reset/tailwind.css`）、`uno.css`、HTML 链 `uno.css`；`npm run uno` / `uno:watch`
-- [x] 底部 Tab：`icons/nav/{warm-earth,maillard}/*-{on,off}.png` 由 `icons/bi-*.svg`（better-icons / fa6-solid）经 `icons/nav/render-nav-png.mjs`（`@resvg/resvg-js`）按主题色栅格化；页面用 `<img>` 引用
-- [x] 微信小程序端 tab 位图：`npm run tab:wx`（`icons/nav/render-tab-bar-wx.mjs`，严格 **81×81px、≤40KB**，图形 ≤60px 居中；`sharp` + `resvg`）同步写入 `../app.vintage.loongzero.com/static/tab/`
-- [x] `orders.html`（maillard / warm-earth）：订单操作按钮文案 `whitespace-nowrap` + 按钮组 `shrink-0`
-- [x] `cart.html`（maillard / warm-earth）：底部导航贴底，结算栏固定在导航上方并留出安全区
-- [x] `detail.html`（maillard / warm-earth）：购物车、购买按钮前增加图标（`fa-cart-plus` / `fa-bag-shopping`）
-- [x] `detail` / `cart` / `orders`：Font Awesome CDN 改为本地 `icons/*.svg`（Iconify `fa6-solid`，better-icons MCP）
-- [x] 初始化新项目模版文件
-- [x] 将初始提示词记录到 RESEARCH.md、PRD.md、TECH_DESIGN.md
+- [x] UI-M-000 原型静态页面主链路完成
+  - 范围：`home.html`、`category.html`、`detail.html`、`cart.html`、`search.html`、`profile.html`、`orders.html`
+  - 验收：核心页面静态结构与视觉可完整浏览
+- [x] UI-T-001 多主题页面产出完成
+  - 范围：`themes/warm-earth/`、`themes/maillard/`
+  - 验收：两套主题均覆盖 7 个核心页面
+- [x] UI-S-001 图标与预览基础设施完成
+  - 范围：`icons/`、`index.html`、`theme-switcher.js`
+  - 验收：图标路径与结构统一，支持多 iframe 平铺与主题切换预览
 
-### 已开发的页面（当前仓库）
-- 根目录 `index.html` + `theme-switcher.js`：多 iframe 平铺、主题切换（`uno.css`；子页本地 `icons/` + `better-icons.css`）
-- 主题 `themes/warm-earth/`、`themes/maillard/`：两套各 7 页静态原型——`home.html`、`category.html`、`detail.html`、`cart.html`、`search.html`、`profile.html`、`orders.html`
-
-## 已知问题
-- 暂无
+## 变更记录（近 7 天）
+- 2026-04-15：重构任务清单结构，统一为执行型 TODO 模板
