@@ -1,0 +1,15 @@
+node_modules/
+dist/
+build/
+.vscode/
+*.log
+.DS_Store
+.env
+.idea/
+*.tmp
+.cache/
+coverage/
+*.swp
+npm-debug.log*
+*.sublime-workspace
+*.sublime-project
