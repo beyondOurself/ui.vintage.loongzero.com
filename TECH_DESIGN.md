@@ -10,7 +10,7 @@
 |------|------|------|
 | 运行时 | 纯静态 HTML | 交付物为静态文件；GitHub Pages 等托管即可。**样式**：本地用 UnoCSS CLI（`npm run uno`）扫描 `**/*.html` 生成根目录 `uno.css`，无 Vite/Webpack |
 | 样式 | **UnoCSS**（`presetWind3` + `@unocss/reset/tailwind.css`） | **Utility 类名与 Tailwind v3 兼容**；主题差异辅以各主题 `styles.css` |
-| 图标 | **本地单文件 SVG**（`icons/*.svg`，图源 Iconify `fa6-solid`，经 better-icons MCP 拉取） | 子页 `better-icons.css` + `<svg><use href="../../icons/bi-….svg#icon"/></svg>` |
+| 图标 | **本地单文件 SVG**（`icons/bi-*.svg`，含 Font Awesome 6 与 **Lucide** 等经 better-icons 拉取；`<symbol id="icon">` 供 `<use href="…#icon">`） | 子页 `better-icons.css` + `<svg><use href="../../icons/bi-….svg#icon"/></svg>`；**Tab「卖闲置」** 使用 `bi-camera.svg`（Lucide `camera`） |
 | 字体 | **Google Fonts — Noto Sans SC** | 子页引入；中文排版与标题字重 |
 | 脚本 | 原生 ES5/ES6 少量脚本 | `theme-switcher.js`、`scrollbar-control.js` |
 | 图片 | **Unsplash** 等外链 | 原型占位；注意版权与外链稳定性 |
@@ -34,18 +34,23 @@ ui.loongzero.com/
     │   ├── styles.css
     │   ├── home.html
     │   ├── category.html
+    │   ├── sell-idle.html   # 卖闲置（C2C Feed）
     │   ├── detail.html
     │   ├── cart.html
     │   ├── search.html
     │   ├── profile.html
+    │   ├── profile-edit.html
     │   └── orders.html
-    └── maillard/           # 主题：美拉德配色（同上 7 页面 + styles.css）
+    └── maillard/           # 主题：美拉德配色（同上页面集 + styles.css）
 ```
 
 **约定**
 
-- 每个主题目录下 **7 个页面文件名固定**，与 `theme-switcher.js` 内 `pages` 数组顺序一致：`home` → `category` → `detail` → `cart` → `search` → `profile` → `orders`。
-- 新增主题：复制某一主题目录、改 `styles.css` 与文案/色值，并在 `themes.json` 中增加一项。
+- 每个主题目录下 **页面文件名** 与根目录 `theme-switcher.js` 内 `pages` 数组顺序一致：  
+  `home` → `category` → **`sell-idle`** → `detail` → `cart` → `search` → `profile` → `profile-edit` → `orders`。  
+- `index.html` 中 iframe 平铺顺序与上表一致（含「卖闲置」一屏）。  
+- **底部 Tab 原型**（`home` / `category` / `cart` / `profile` 等含导航的页）：**5 项** — 首页、分类、**卖闲置**、购物车、我的；PNG 由 `icons/nav/render-nav-png.mjs` 生成（`sell-idle` 对应 `bi-camera.svg`）。微信小程序用 Tab 图另见同目录 `render-tab-bar-wx.mjs`（输出 `sell-idle.png` / `sell-idle-active.png` 等到 `app.vintage` `static/tab`）。  
+- 新增主题：复制某一主题目录、补全同上 HTML 文件名、改 `styles.css` 与文案/色值，并在 `themes.json` 中增加一项。
 
 ## 数据模型
 
@@ -100,4 +105,4 @@ ui.loongzero.com/
 
 - 区块语义化（`header` / `section` / 主列表）便于对图层。
 - 间距优先用 Wind3/Tailwind spacing scale，减少任意像素。
-- 主题扩展时保持 **同一信息架构**（7 屏），仅换视觉 token 与 copy。
+- 主题扩展时保持 **同一信息架构**（含卖闲置等与 `theme-switcher` 一致的屏），仅换视觉 token 与 copy。

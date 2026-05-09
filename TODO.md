@@ -55,6 +55,10 @@
 - [x] UI-S-001 图标与预览基础设施完成
   - 范围：`icons/`、`index.html`、`theme-switcher.js`
   - 验收：图标路径与结构统一，支持多 iframe 平铺与主题切换预览
+- [x] UI-D-002 双供给与卖闲置写入 PRD/TECH
+  - 范围：`PRD.md`、`TECH_DESIGN.md`
+  - 验收：文档含自营+C2C、`sell-idle` 页面与 Tab 约定，并与 app/service 文档互引
 
 ## 变更记录（近 7 天）
+- 2026-05-09：UI-D-002 完成；卖闲置原型与三端文档对齐
 - 2026-04-15：重构任务清单结构，统一为执行型 TODO 模板

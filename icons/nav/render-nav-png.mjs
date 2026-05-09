@@ -12,6 +12,7 @@ const THEMES = {
 const ICONS = [
   { name: "home", file: "bi-home.svg" },
   { name: "category", file: "bi-th-large.svg" },
+  { name: "sell-idle", file: "bi-camera.svg" },
   { name: "cart", file: "bi-shopping-bag.svg" },
   { name: "user", file: "bi-user.svg" },
 ];

@@ -70,7 +70,7 @@ class ThemeSwitcher {
 
         // 更新所有 iframe 的 src
         const iframes = document.querySelectorAll('iframe');
-        const pages = ['home', 'category', 'detail', 'cart', 'search', 'profile', 'profile-edit', 'orders'];
+        const pages = ['home', 'category', 'sell-idle', 'detail', 'cart', 'search', 'profile', 'profile-edit', 'orders'];
         
         iframes.forEach((iframe, index) => {
             if (pages[index]) {

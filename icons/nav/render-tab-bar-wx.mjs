@@ -30,6 +30,7 @@ const THEMES = {
 const ICONS = [
   { name: 'home', file: 'bi-home.svg' },
   { name: 'category', file: 'bi-th-large.svg' },
+  { name: 'sell-idle', file: 'bi-camera.svg' },
   { name: 'cart', file: 'bi-shopping-bag.svg' },
   { name: 'user', file: 'bi-user.svg' }
 ]
@@ -37,6 +38,7 @@ const ICONS = [
 const APP_NAMES = {
   home: { on: 'home-active.png', off: 'home.png' },
   category: { on: 'category-active.png', off: 'category.png' },
+  'sell-idle': { on: 'sell-idle-active.png', off: 'sell-idle.png' },
   cart: { on: 'cart-active.png', off: 'cart.png' },
   user: { on: 'profile-active.png', off: 'profile.png' }
 }
