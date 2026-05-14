@@ -21,6 +21,17 @@
         "accentColor": "#D2691E",
         "backgroundColor": "#FAF0E6"
       }
+    },
+    {
+      "id": "market-nest",
+      "name": "MarketNest",
+      "description": "DESIGN.md：陶土主色、无阴影扁平边框、Lora+Open Sans",
+      "path": "themes/market-nest",
+      "preview": {
+        "primaryColor": "#C2410C",
+        "accentColor": "#D4A373",
+        "backgroundColor": "#FFFBF5"
+      }
     }
   ],
   "defaultTheme": "warm-earth"

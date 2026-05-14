@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车 - 古着商城</title>
+    <link rel="stylesheet" href="../../uno.css?v=__ASSET_VERSION__">
+    <link rel="stylesheet" href="../../iconfont/better-icons.css?v=__ASSET_VERSION__">
+    <link rel="stylesheet" href="styles.css?v=__ASSET_VERSION__">
+    <script src="../../scrollbar-control.js?v=__ASSET_VERSION__"></script></head>
+<body class="vintage-bg" style="margin:0;padding:0;">
+    <!-- 顶部导航 -->
+    <header class="bg-white sticky top-0 z-50 safe-top border-b border-[#E7E5E4]">
+        <div class="flex items-center justify-between px-4 py-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="bi-svg text-[#1C1917] text-lg" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="../../icons/bi-arrow-left.svg?v=__ASSET_VERSION__#icon"/></svg>
+            <h1 class="text-lg font-bold gradient-text">购物车</h1>
+            <button class="text-sm text-[#1C1917] font-semibold">编辑</button>
+        </div>
+    </header>
+
+    <!-- 购物车商品列表 -->
+    <main class="pb-52">
+        <div class="px-4 py-4 space-y-3">
+            <!-- 商品项1 -->
+            <div class="card-shadow p-3">
+                <div class="flex items-start gap-3">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="bi-svg text-[#C2410C] text-xl" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="../../icons/bi-circle-check.svg?v=__ASSET_VERSION__#icon"/></svg>
+                    </div>
+                    <div class="flex-1">
+                        <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=200&q=80" alt="商品" class="w-20 h-20 object-cover border border-[#D6D3D1] rounded">
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-sm font-bold vintage-card-title mb-1">90年代复古夹克</h3>
+                        <p class="text-xs text-[#57534E] mb-2">尺码：M | 颜色：蓝色</p>
+                        <div class="flex items-center justify-between">
+                            <span class="vintage-price">¥299</span>
+                            <div class="flex items-center gap-3">
+                                <button class="w-7 h-7 border border-[#D6D3D1] rounded-full flex items-center justify-center bg-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="bi-svg text-xs text-[#57534E]" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="../../icons/bi-minus.svg?v=__ASSET_VERSION__#icon"/></svg>
+                                </button>
+                                <span class="text-sm text-[#1C1917] w-8 text-center font-semibold">1</span>
+                                <button class="w-7 h-7 bg-[#C2410C] rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="bi-svg text-xs text-white" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="../../icons/bi-plus.svg?v=__ASSET_VERSION__#icon"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 商品项2 -->
+            <div class="bg-white p-3 card-shadow">
+                <div class="flex items-start gap-3">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="bi-svg text-[#C2410C] text-xl" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="../../icons/bi-circle-check.svg?v=__ASSET_VERSION__#icon"/></svg>
+                    </div>
+                    <div class="flex-1">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=200&q=80" alt="商品" class="w-20 h-20 object-cover rounded">
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-sm font-medium text-gray-900 mb-1">经典格纹衬衫</h3>
+                        <p class="text-xs text-gray-500 mb-2">尺码：L | 颜色：红格</p>
+                        <div class="flex items-center justify-between">
+                            <span class="vintage-price">¥189</span>
+                            <div class="flex items-center gap-3">
+                                <button class="w-7 h-7 border border-[#D6D3D1] rounded-full flex items-center justify-center bg-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="bi-svg text-xs text-[#57534E]" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="../../icons/bi-minus.svg?v=__ASSET_VERSION__#icon"/></svg>
+                                </button>
+                                <span class="text-sm text-[#1C1917] w-8 text-center font-semibold">1</span>
+                                <button class="w-7 h-7 bg-[#C2410C] rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="bi-svg text-xs text-white" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="../../icons/bi-plus.svg?v=__ASSET_VERSION__#icon"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 推荐商品 -->
+            <div class="mt-6">
+                <h2 class="text-base vintage-title mb-3 tracking-wider uppercase">为你推荐</h2>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-white overflow-hidden card-shadow card-shadow-hover">
+                        <div class="h-32 bg-[#FDF6EC]">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80" alt="商品" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-2">
+                            <p class="text-xs vintage-card-title mb-1 line-clamp-2">复古牛仔外套</p>
+                            <p class="vintage-price text-sm">¥359</p>
+                        </div>
+                    </div>
+                    <div class="bg-white overflow-hidden card-shadow card-shadow-hover">
+                        <div class="h-32 bg-[#FDF6EC]">
+                            <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=400&q=80" alt="商品" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-2">
+                            <p class="text-xs vintage-card-title mb-1 line-clamp-2">vintage皮夹克</p>
+                            <p class="vintage-price text-sm">¥599</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部结算栏（在底部导航之上） -->
+    <div class="fixed left-0 right-0 z-40 bg-white border-t border-[#E7E5E4]" style="bottom: calc(3.5rem + env(safe-area-inset-bottom, 0px));">
+        <div class="px-4 py-3">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="bi-svg text-[#C2410C] text-xl" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="../../icons/bi-circle-check.svg?v=__ASSET_VERSION__#icon"/></svg>
+                    <span class="text-sm text-[#1C1917] font-semibold">全选</span>
+                </div>
+                <div class="text-sm text-[#57534E]">
+                    合计：<span class="vintage-price text-lg">¥488</span>
+                </div>
+            </div>
+            <button class="w-full vintage-btn py-3 tracking-wider uppercase">结算(2)</button>
+        </div>
+    </div>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav fixed bottom-0 left-0 right-0 z-50 safe-bottom">
+        <div class="flex items-center justify-around py-2 px-1">
+            <div class="flex flex-col items-center min-w-0 flex-1">
+                <img src="../../icons/nav/market-nest/home-off.png" alt="" class="w-5 h-5 mb-0.5 object-contain" width="20" height="20" decoding="async">
+                <span class="text-[10px] text-[#57534E] tracking-wider uppercase">首页</span>
+            </div>
+            <div class="flex flex-col items-center min-w-0 flex-1">
+                <img src="../../icons/nav/market-nest/category-off.png" alt="" class="w-5 h-5 mb-0.5 object-contain" width="20" height="20" decoding="async">
+                <span class="text-[10px] text-[#57534E] tracking-wider uppercase">分类</span>
+            </div>
+            <div class="flex flex-col items-center min-w-0 flex-1">
+                <img src="../../icons/nav/market-nest/sell-idle-off.png" alt="" class="w-5 h-5 mb-0.5 object-contain" width="20" height="20" decoding="async">
+                <span class="text-[10px] text-[#57534E]">卖闲置</span>
+            </div>
+            <div class="flex flex-col items-center min-w-0 flex-1">
+                <img src="../../icons/nav/market-nest/cart-on.png" alt="" class="w-5 h-5 mb-0.5 object-contain" width="20" height="20" decoding="async">
+                <span class="text-[10px] text-[#C2410C] font-medium tracking-wider uppercase">购物车</span>
+            </div>
+            <div class="flex flex-col items-center min-w-0 flex-1">
+                <img src="../../icons/nav/market-nest/user-off.png" alt="" class="w-5 h-5 mb-0.5 object-contain" width="20" height="20" decoding="async">
+                <span class="text-[10px] text-[#57534E] tracking-wider uppercase">我的</span>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
+

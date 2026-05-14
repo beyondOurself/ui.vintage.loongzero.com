@@ -24,7 +24,8 @@ const MAX_BYTES = 40 * 1024
 
 const THEMES = {
   'warm-earth': { on: '#876635', off: '#857C72' },
-  maillard: { on: '#D2691E', off: '#C9A882' }
+  maillard: { on: '#D2691E', off: '#C9A882' },
+  'market-nest': { on: '#C2410C', off: '#57534E' }
 }
 
 const ICONS = [

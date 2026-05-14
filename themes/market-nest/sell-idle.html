@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卖闲置 - 古着商城</title>
+    <link rel="stylesheet" href="../../uno.css?v=__ASSET_VERSION__">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=__ASSET_VERSION__">
+    <script src="../../scrollbar-control.js?v=__ASSET_VERSION__"></script>
+</head>
+<body class="vintage-bg" style="margin:0;padding:0;">
+    <header class="bg-white sticky top-0 z-50 safe-top border-b border-[#E7E5E4]">
+        <div class="flex items-center gap-2 px-3 py-3">
+            <div class="flex-1 min-w-0 vintage-input flex items-center rounded-full py-2 px-3 border-[#D6D3D1]">
+                <i class="fas fa-search text-[#57534E] text-sm mr-2 shrink-0"></i>
+                <input type="text" placeholder="搜索闲置好物" class="flex-1 min-w-0 bg-transparent text-sm text-[#1C1917] placeholder-[#A8A29E] outline-none">
+            </div>
+            <button type="button" class="shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-[#FFFBF5] border border-[#E7E5E4] text-[#1C1917]" aria-label="发布闲置">
+                <i class="fas fa-plus text-sm font-semibold"></i>
+            </button>
+        </div>
+        <div class="flex gap-1 px-2 pb-1 overflow-x-auto scrollbar-hide border-t border-[#F5F5F4]">
+            <button type="button" class="shrink-0 whitespace-nowrap px-3 py-2 text-sm font-semibold text-[#1C1917] border-b-2 border-[#C2410C] bg-transparent">猜你喜欢</button>
+            <button type="button" class="shrink-0 whitespace-nowrap px-3 py-2 text-sm text-[#57534E] border-b-2 border-transparent bg-transparent">外套</button>
+            <button type="button" class="shrink-0 whitespace-nowrap px-3 py-2 text-sm text-[#57534E] border-b-2 border-transparent bg-transparent">裙子</button>
+            <button type="button" class="shrink-0 whitespace-nowrap px-3 py-2 text-sm text-[#57534E] border-b-2 border-transparent bg-transparent">鞋子</button>
+            <button type="button" class="shrink-0 whitespace-nowrap px-3 py-2 text-sm text-[#57534E] border-b-2 border-transparent bg-transparent">衬衫</button>
+            <button type="button" class="shrink-0 whitespace-nowrap px-3 py-2 text-sm text-[#57534E] border-b-2 border-transparent bg-transparent">配饰</button>
+            <button type="button" class="shrink-0 whitespace-nowrap px-3 py-2 text-sm text-[#57534E] border-b-2 border-transparent bg-transparent">包袋</button>
+        </div>
+    </header>
+
+    <main class="px-2 pt-2 pb-24">
+        <div class="columns-2 gap-2">
+            <article class="break-inside-avoid mb-2 card-shadow rounded-lg overflow-hidden bg-white">
+                <div class="relative bg-[#FDF6EC]">
+                    <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=400&q=80" alt="" class="w-full h-44 object-cover">
+                    <span class="absolute top-2 left-2 text-[10px] px-2 py-0.5 rounded-md bg-white/95 text-[#1C1917] font-medium">夹克</span>
+                    <span class="absolute top-2 right-2 vintage-badge text-[9px] py-0.5 px-1.5">个人闲置</span>
+                </div>
+                <div class="p-2.5">
+                    <div class="flex flex-wrap gap-1 mb-1">
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-[#E7E5E4] bg-[#FFFBF5] text-[#365314]">包邮</span>
+                    </div>
+                    <p class="text-xs vintage-card-title line-clamp-2 leading-snug">90s 工装夹克 落色自然</p>
+                    <p class="text-[11px] vintage-muted mt-1">良好 | L码</p>
+                    <div class="flex items-baseline justify-between gap-2 mt-2">
+                        <span class="vintage-price text-base">¥268</span>
+                        <span class="text-[10px] vintage-muted shrink-0">128人想要</span>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2 pt-2 border-t border-[#E7E5E4]">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&q=60" alt="" class="w-6 h-6 rounded-full object-cover bg-[#D6D3D1]">
+                        <span class="text-[11px] vintage-muted truncate">阿木古着</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="break-inside-avoid mb-2 card-shadow rounded-lg overflow-hidden bg-white">
+                <div class="relative bg-[#FDF6EC]">
+                    <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&q=80" alt="" class="w-full h-52 object-cover">
+                    <span class="absolute top-2 left-2 text-[10px] px-2 py-0.5 rounded-md bg-white/95 text-[#1C1917] font-medium">衬衫</span>
+                </div>
+                <div class="p-2.5">
+                    <p class="text-xs vintage-card-title line-clamp-2 leading-snug">法式复古条纹衬衫 仅试穿</p>
+                    <p class="text-[11px] vintage-muted mt-1">几乎全新 | M码</p>
+                    <div class="flex items-baseline justify-between gap-2 mt-2">
+                        <span class="vintage-price text-base">¥189</span>
+                        <span class="text-[10px] vintage-muted shrink-0">56人想要</span>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2 pt-2 border-t border-[#E7E5E4]">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&q=60" alt="" class="w-6 h-6 rounded-full object-cover bg-[#D6D3D1]">
+                        <span class="text-[11px] vintage-muted truncate">川久私服</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="break-inside-avoid mb-2 card-shadow rounded-lg overflow-hidden bg-white">
+                <div class="relative bg-[#FDF6EC]">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80" alt="" class="w-full h-40 object-cover">
+                    <span class="absolute top-2 left-2 text-[10px] px-2 py-0.5 rounded-md bg-white/95 text-[#1C1917] font-medium">半裙</span>
+                    <span class="absolute top-2 right-2 vintage-badge text-[9px] py-0.5 px-1.5">个人闲置</span>
+                </div>
+                <div class="p-2.5">
+                    <div class="flex flex-wrap gap-1 mb-1">
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-[#E7E5E4] bg-[#FFFBF5] text-[#365314]">包邮</span>
+                    </div>
+                    <p class="text-xs vintage-card-title line-clamp-2 leading-snug">羊毛格纹半裙 vintage</p>
+                    <p class="text-[11px] vintage-muted mt-1">良好 | S码</p>
+                    <div class="flex items-baseline justify-between gap-2 mt-2">
+                        <span class="vintage-price text-base">¥220</span>
+                        <span class="text-[10px] vintage-muted shrink-0">41人想要</span>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2 pt-2 border-t border-[#E7E5E4]">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=64&q=60" alt="" class="w-6 h-6 rounded-full object-cover bg-[#D6D3D1]">
+                        <span class="text-[11px] vintage-muted truncate">小岛二手</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="break-inside-avoid mb-2 card-shadow rounded-lg overflow-hidden bg-white">
+                <div class="relative bg-[#FDF6EC]">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80" alt="" class="w-full h-48 object-cover">
+                    <span class="absolute top-2 left-2 text-[10px] px-2 py-0.5 rounded-md bg-white/95 text-[#1C1917] font-medium">鞋履</span>
+                </div>
+                <div class="p-2.5">
+                    <p class="text-xs vintage-card-title line-clamp-2 leading-snug">德训鞋 真皮底轻微磨损</p>
+                    <p class="text-[11px] vintage-muted mt-1">明显穿着感 | 38</p>
+                    <div class="flex items-baseline justify-between gap-2 mt-2">
+                        <span class="vintage-price text-base">¥320</span>
+                        <span class="text-[10px] vintage-muted shrink-0">203人想要</span>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2 pt-2 border-t border-[#E7E5E4]">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=64&q=60" alt="" class="w-6 h-6 rounded-full object-cover bg-[#D6D3D1]">
+                        <span class="text-[11px] vintage-muted truncate">步履不停</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="break-inside-avoid mb-2 card-shadow rounded-lg overflow-hidden bg-white">
+                <div class="relative bg-[#FDF6EC]">
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80" alt="" class="w-full h-56 object-cover">
+                    <span class="absolute top-2 left-2 text-[10px] px-2 py-0.5 rounded-md bg-white/95 text-[#1C1917] font-medium">牛仔</span>
+                </div>
+                <div class="p-2.5">
+                    <div class="flex flex-wrap gap-1 mb-1">
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-[#E7E5E4] bg-[#FFFBF5] text-[#365314]">包邮</span>
+                    </div>
+                    <p class="text-xs vintage-card-title line-clamp-2 leading-snug">Levi's 517 喇叭裤 落色漂亮</p>
+                    <p class="text-[11px] vintage-muted mt-1">良好 | W30</p>
+                    <div class="flex items-baseline justify-between gap-2 mt-2">
+                        <span class="vintage-price text-base">¥450</span>
+                        <span class="text-[10px] vintage-muted shrink-0">89人想要</span>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2 pt-2 border-t border-[#E7E5E4]">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&q=60" alt="" class="w-6 h-6 rounded-full object-cover bg-[#D6D3D1]">
+                        <span class="text-[11px] vintage-muted truncate">丹宁仓库</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="break-inside-avoid mb-2 card-shadow rounded-lg overflow-hidden bg-white">
+                <div class="relative bg-[#FDF6EC]">
+                    <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&q=80" alt="" class="w-full h-44 object-cover">
+                    <span class="absolute top-2 left-2 text-[10px] px-2 py-0.5 rounded-md bg-white/95 text-[#1C1917] font-medium">风衣</span>
+                    <span class="absolute top-2 right-2 vintage-badge text-[9px] py-0.5 px-1.5">个人闲置</span>
+                </div>
+                <div class="p-2.5">
+                    <p class="text-xs vintage-card-title line-clamp-2 leading-snug">卡其色巴尔玛肯风衣</p>
+                    <p class="text-[11px] vintage-muted mt-1">几乎全新 | M码</p>
+                    <div class="flex items-baseline justify-between gap-2 mt-2">
+                        <span class="vintage-price text-base">¥580</span>
+                        <span class="text-[10px] vintage-muted shrink-0">17人想要</span>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2 pt-2 border-t border-[#E7E5E4]">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&q=60" alt="" class="w-6 h-6 rounded-full object-cover bg-[#D6D3D1]">
+                        <span class="text-[11px] vintage-muted truncate">城北猎人</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="break-inside-avoid mb-2 card-shadow rounded-lg overflow-hidden bg-white">
+                <div class="relative bg-[#FDF6EC]">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80" alt="" class="w-full h-44 object-cover">
+                    <span class="absolute top-2 left-2 text-[10px] px-2 py-0.5 rounded-md bg-white/95 text-[#1C1917] font-medium">包袋</span>
+                </div>
+                <div class="p-2.5">
+                    <p class="text-xs vintage-card-title line-clamp-2 leading-snug">皮质邮差包 边角有使用痕迹</p>
+                    <p class="text-[11px] vintage-muted mt-1">明显穿着感 | 均码</p>
+                    <div class="flex items-baseline justify-between gap-2 mt-2">
+                        <span class="vintage-price text-base">¥199</span>
+                        <span class="text-[10px] vintage-muted shrink-0">64人想要</span>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2 pt-2 border-t border-[#E7E5E4]">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=64&q=60" alt="" class="w-6 h-6 rounded-full object-cover bg-[#D6D3D1]">
+                        <span class="text-[11px] vintage-muted truncate">慢半拍</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="break-inside-avoid mb-2 card-shadow rounded-lg overflow-hidden bg-white">
+                <div class="relative bg-[#FDF6EC]">
+                    <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=400&q=80" alt="" class="w-full h-48 object-cover">
+                    <span class="absolute top-2 left-2 text-[10px] px-2 py-0.5 rounded-md bg-white/95 text-[#1C1917] font-medium">皮衣</span>
+                </div>
+                <div class="p-2.5">
+                    <div class="flex flex-wrap gap-1 mb-1">
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-[#E7E5E4] bg-[#FFFBF5] text-[#365314]">包邮</span>
+                    </div>
+                    <p class="text-xs vintage-card-title line-clamp-2 leading-snug">棕色羊皮夹克 保养良好</p>
+                    <p class="text-[11px] vintage-muted mt-1">良好 | L码</p>
+                    <div class="flex items-baseline justify-between gap-2 mt-2">
+                        <span class="vintage-price text-base">¥899</span>
+                        <span class="text-[10px] vintage-muted shrink-0">12人想要</span>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2 pt-2 border-t border-[#E7E5E4]">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=64&q=60" alt="" class="w-6 h-6 rounded-full object-cover bg-[#D6D3D1]">
+                        <span class="text-[11px] vintage-muted truncate">旧物局</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <nav class="bottom-nav fixed bottom-0 left-0 right-0 z-50 safe-bottom">
+        <div class="flex items-center justify-around py-2 px-1">
+            <div class="flex flex-col items-center min-w-0 flex-1">
+                <img src="../../icons/nav/market-nest/home-off.png" alt="" class="w-5 h-5 mb-0.5 object-contain" width="20" height="20" decoding="async">
+                <span class="text-[10px] text-[#57534E] tracking-wider uppercase">首页</span>
+            </div>
+            <div class="flex flex-col items-center min-w-0 flex-1">
+                <img src="../../icons/nav/market-nest/category-off.png" alt="" class="w-5 h-5 mb-0.5 object-contain" width="20" height="20" decoding="async">
+                <span class="text-[10px] text-[#57534E] tracking-wider uppercase">分类</span>
+            </div>
+            <div class="flex flex-col items-center min-w-0 flex-1">
+                <img src="../../icons/nav/market-nest/sell-idle-on.png" alt="" class="w-5 h-5 mb-0.5 object-contain" width="20" height="20" decoding="async">
+                <span class="text-[10px] text-[#C2410C] font-medium">卖闲置</span>
+            </div>
+            <div class="flex flex-col items-center min-w-0 flex-1">
+                <img src="../../icons/nav/market-nest/cart-off.png" alt="" class="w-5 h-5 mb-0.5 object-contain" width="20" height="20" decoding="async">
+                <span class="text-[10px] text-[#57534E] tracking-wider uppercase">购物车</span>
+            </div>
+            <div class="flex flex-col items-center min-w-0 flex-1">
+                <img src="../../icons/nav/market-nest/user-off.png" alt="" class="w-5 h-5 mb-0.5 object-contain" width="20" height="20" decoding="async">
+                <span class="text-[10px] text-[#57534E] tracking-wider uppercase">我的</span>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
