@@ -217,11 +217,10 @@ body::-webkit-scrollbar-thumb,
     text-transform: uppercase;
 }
 
-/* 价格 */
+/* 价格（全站醒目促销色；字号由 HTML 上 text-sm / text-lg / text-2xl 等叠加） */
 .vintage-price {
-    color: #351D14; /* MAHOGANY 深棕色 */
-    font-weight: 600;
-    font-size: 18px;
+    color: #E53935;
+    font-weight: 700;
     letter-spacing: 0.3px;
 }
 

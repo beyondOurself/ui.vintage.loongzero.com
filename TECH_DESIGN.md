@@ -35,7 +35,9 @@ ui.loongzero.com/
     │   ├── home.html
     │   ├── category.html
     │   ├── sell-idle.html   # 卖闲置（C2C Feed）
-    │   ├── publish-idle.html # 发闲置（发布表单 + Sheet 原型）
+    │   ├── publish-idle.html # 发闲置（发布表单 + 发货/相册底部 Sheet）
+    │   ├── idle-detail.html  # 闲置商品详情（卖家条、主图、价格区间、留言、推荐、底栏）
+    │   ├── idle-chat.html    # 私聊（我想要进入：会话顶栏、商品摘要条、消息区、底栏输入）
     │   ├── detail.html
     │   ├── cart.html
     │   ├── search.html
@@ -48,8 +50,8 @@ ui.loongzero.com/
 **约定**
 
 - 每个主题目录下 **页面文件名** 与根目录 `theme-switcher.js` 内 `pages` 数组顺序一致：  
-  `home` → `category` → **`sell-idle`** → **`publish-idle`** → `detail` → `cart` → `search` → `profile` → `profile-edit` → `orders`。  
-- `index.html` 中 iframe 平铺顺序与上表一致（含「卖闲置」「发闲置」）。  
+  `home` → `category` → **`sell-idle`** → **`publish-idle`** → **`idle-detail`** → **`idle-chat`** → `detail` → `cart` → `search` → `profile` → `profile-edit` → `orders`。  
+- `index.html` 中 iframe 平铺顺序与上表一致（含「卖闲置」「发闲置」「私聊」）。  
 - **底部 Tab 原型**（`home` / `category` / `cart` / `profile` 等含导航的页）：**5 项** — 首页、分类、**卖闲置**、购物车、我的；PNG 由 `icons/nav/render-nav-png.mjs` 生成（`sell-idle` 对应 `bi-camera.svg`）。微信小程序用 Tab 图另见同目录 `render-tab-bar-wx.mjs`（输出 `sell-idle.png` / `sell-idle-active.png` 等到 `app.vintage` `static/tab`）。  
 - 新增主题：复制某一主题目录、补全同上 HTML 文件名、改 `styles.css` 与文案/色值，并在 `themes.json` 中增加一项。
 

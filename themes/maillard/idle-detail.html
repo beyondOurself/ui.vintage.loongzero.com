@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闲置详情 - 古着商城</title>
+    <link rel="stylesheet" href="../../uno.css?v=__ASSET_VERSION__">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=__ASSET_VERSION__">
+    <script src="../../scrollbar-control.js?v=__ASSET_VERSION__"></script>
+    <style>
+        .idle-want-btn { background: #FFDA00; color: #000000; font-weight: 600; border-radius: 9999px; border: 1px solid #E8CF00; }
+        .idle-buy-btn { background: #fff; color: #5C4033; font-weight: 600; border-radius: 9999px; border: 1px solid #E8D5C4; }
+        .idle-overlay { position: fixed; inset: 0; z-index: 200; display: flex; visibility: hidden; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, visibility 0.2s; }
+        .idle-overlay:target { visibility: visible; opacity: 1; pointer-events: auto; }
+        .idle-overlay--bottom { align-items: flex-end; justify-content: stretch; }
+        .idle-overlay--center { align-items: center; justify-content: center; }
+        .idle-backdrop { position: absolute; inset: 0; z-index: 0; background: rgba(60, 42, 30, 0.5); }
+        .idle-comment-panel { position: relative; z-index: 10; width: 100%; background: #fff; border-radius: 22px 22px 0 0; box-shadow: 0 -6px 28px rgba(92, 64, 51, 0.16); padding: 16px 16px calc(18px + env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 12px; }
+        .idle-comment-input { flex: 1; min-width: 0; height: 44px; border: 0; border-radius: 9999px; background: #ebebeb; padding: 0 16px; font-size: 15px; color: #5C4033; outline: none; }
+        .idle-comment-send { flex-shrink: 0; height: 40px; padding: 0 20px; border-radius: 9999px; background: #ffda00; border: 1px solid #e8cf00; color: #000; font-size: 14px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .idle-buy-panel { position: relative; z-index: 10; width: 100%; background: #fff; border-radius: 20px 20px 0 0; box-shadow: 0 -8px 32px rgba(92, 64, 51, 0.16); max-height: min(70vh, 88dvh); display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
+        .idle-buy-scroll { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+        .idle-buy-footer { flex-shrink: 0; background: #fff; border-top: 1px solid #faf0e6; padding: 12px 16px calc(16px + env(safe-area-inset-bottom)); }
+        body:has(#toast-fav:target) .idle-fav-star { color: #FFDA00; }
+    </style>
+</head>
+<body class="vintage-bg" style="margin:0;padding:0;">
+    <header class="bg-white sticky top-0 z-40 safe-top border-b border-[#E8D5C4]">
+        <div class="flex items-center gap-2 px-2 py-2.5">
+            <a href="#" class="w-9 h-9 flex items-center justify-center text-[#5C4033] shrink-0" aria-label="返回"><i class="fas fa-arrow-left"></i></a>
+            <div class="flex-1 min-w-0 flex items-center gap-2">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&q=60" alt="" class="w-9 h-9 rounded-full object-cover bg-[#E8D5C4] shrink-0">
+                <div class="min-w-0 flex-1">
+                    <div class="flex items-center gap-1 flex-wrap">
+                        <span class="text-sm font-semibold text-[#5C4033] truncate">区别市场通货</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded bg-[#FFF8E6] text-[#8B6F47] border border-[#E8D5C4]">赞</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded bg-[#F0F4FF] text-[#4a6fa5] border border-[#E8D5C4]">丽小铺 L7</span>
+                    </div>
+                    <p class="text-[11px] vintage-muted mt-0.5">广州</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pb-28">
+        <section class="relative bg-[#6B4423]">
+            <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=800&q=80" alt="" class="w-full aspect-square object-cover">
+            <div class="absolute top-3 right-3 bg-black/55 text-white text-[11px] px-2.5 py-1 rounded-full font-medium">1/9</div>
+        </section>
+
+        <section class="bg-white px-4 pt-4 pb-3 border-b border-[#FAF0E6]">
+            <div class="flex items-start justify-between gap-2 mb-3">
+                <div class="flex items-baseline flex-wrap gap-x-1 gap-y-0">
+                    <span class="text-2xl vintage-price leading-none">¥70</span>
+                    <span class="text-lg vintage-price leading-none">-</span>
+                    <span class="text-2xl vintage-price leading-none">108</span>
+                    <span class="text-xs text-[#5C4033] font-medium ml-1 self-center">包邮</span>
+                </div>
+                <div class="text-[10px] vintage-muted text-right shrink-0 leading-tight pt-0.5">
+                    <span>1864人想要</span>
+                    <span class="mx-1 text-[#E8D5C4]">|</span>
+                    <span>4.5万浏览</span>
+                </div>
+            </div>
+            <h1 class="text-[15px] font-semibold text-[#5C4033] leading-snug mb-2">【支持验证】adidas TEAMGEIST 阿迪达斯运动外套 vintage 每一件可验</h1>
+            <p class="text-sm vintage-muted leading-relaxed">球衣白款细节如图，买前看好描述。支持鉴定，包邮除偏远。更多实拍见相册。</p>
+        </section>
+
+        <section class="bg-white mt-2 px-4 py-4 border-t border-[#FAF0E6]">
+            <h2 class="text-sm font-semibold text-[#5C4033] mb-3">4条留言</h2>
+            <div class="flex gap-2 mb-4">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&q=60" alt="" class="w-8 h-8 rounded-full object-cover shrink-0">
+                <div class="flex-1 rounded-full bg-[#FFFBF5] px-3 py-2 text-xs text-[#C9A882] border border-[#E8D5C4]">看对眼就留言，问问更多细节~</div>
+            </div>
+            <div class="border-b border-[#FAF0E6] pb-4 mb-4">
+                <div class="flex gap-2">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&q=60" alt="" class="w-8 h-8 rounded-full object-cover shrink-0">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex justify-between gap-2">
+                            <span class="text-xs text-[#C9A882]">美美挑选</span>
+                            <span class="text-[10px] text-[#C9A882] shrink-0">8天前</span>
+                        </div>
+                        <p class="text-sm text-[#5C4033] mt-1">成色不错，还在吗？</p>
+                    </div>
+                </div>
+                <div class="mt-3 ml-2 pl-8 border-l-2 border-[#E8D5C4]">
+                    <div class="flex gap-2">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=64&q=60" alt="" class="w-7 h-7 rounded-full object-cover shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <div class="flex justify-between gap-2">
+                                <span class="text-xs text-[#C9A882]">郑先生啊</span>
+                                <span class="text-[10px] text-[#C9A882] shrink-0">7天前</span>
+                            </div>
+                            <p class="text-sm text-[#5C4033] mt-1">回复@美美挑选：还在的，私聊发你更多图。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=64&q=60" alt="" class="w-8 h-8 rounded-full object-cover shrink-0">
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between gap-2">
+                        <span class="text-xs text-[#C9A882]">川久私服</span>
+                        <span class="text-[10px] text-[#C9A882] shrink-0">3天前</span>
+                    </div>
+                    <p class="text-sm text-[#5C4033] mt-1">能刀吗？同城自提可以不？</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-2 bg-white px-3 pt-4 pb-6">
+            <div class="flex items-center gap-1.5 px-1 mb-3 text-sm font-semibold text-[#E64A19]">
+                <i class="fas fa-heart text-xs"></i>
+                <span>为你推荐</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+                <article class="rounded-lg overflow-hidden border border-[#E8D5C4] bg-white">
+                    <div class="aspect-square bg-[#6B4423]">
+                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80" alt="" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-2">
+                        <p class="text-xs vintage-card-title line-clamp-2 mb-1">复古三条纹夹克</p>
+                        <p class="vintage-price text-sm">¥199</p>
+                    </div>
+                </article>
+                <article class="rounded-lg overflow-hidden border border-[#E8D5C4] bg-white">
+                    <div class="aspect-square bg-[#6B4423]">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&q=80" alt="" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-2">
+                        <p class="text-xs vintage-card-title line-clamp-2 mb-1">英格兰训练服 vintage</p>
+                        <p class="vintage-price text-sm">¥268</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <div class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-[#E8D5C4] safe-bottom shadow-[0_-4px_16px_rgba(92,64,51,0.06)]">
+        <div class="flex items-stretch px-2 py-2 gap-1">
+            <a href="#sheet-comment" class="flex flex-col items-center justify-center w-14 shrink-0 py-1 text-inherit no-underline">
+                <i class="far fa-comment-dots text-lg text-[#5C4033] mb-0.5"></i>
+                <span class="text-[10px] text-[#C9A882]">留言</span>
+            </a>
+            <a href="#toast-fav" class="flex flex-col items-center justify-center w-14 shrink-0 py-1 text-inherit no-underline">
+                <i class="far fa-star text-lg text-[#5C4033] mb-0.5 idle-fav-star transition-colors"></i>
+                <span class="text-[10px] text-[#C9A882]">2349</span>
+            </a>
+            <button type="button" class="flex flex-col items-center justify-center w-14 shrink-0 py-1 border-0 bg-transparent cursor-pointer">
+                <i class="fas fa-share-alt text-base text-[#5C4033] mb-0.5"></i>
+                <span class="text-[10px] text-[#C9A882]">分享</span>
+            </button>
+            <a href="#sheet-buy" class="idle-buy-btn flex-1 min-w-0 py-2.5 text-sm mx-0.5 self-center text-center no-underline flex items-center justify-center">立即购买</a>
+            <a href="idle-chat.html" class="idle-want-btn flex-1 min-w-0 py-2.5 text-sm flex items-center justify-center gap-1 self-center no-underline"><i class="far fa-comment text-sm"></i>我想要</a>
+        </div>
+    </div>
+
+    <div id="sheet-comment" class="idle-overlay idle-overlay--bottom">
+        <a href="#" class="idle-backdrop" aria-label="关闭"></a>
+        <div class="idle-comment-panel">
+            <input type="text" class="idle-comment-input" value="我我发的" autocomplete="off">
+            <a href="#" class="idle-comment-send">发送</a>
+        </div>
+    </div>
+
+    <div id="toast-fav" class="idle-overlay idle-overlay--center">
+        <a href="#" class="idle-backdrop" aria-label="关闭"></a>
+        <div class="relative z-10 mx-4 w-full max-w-sm rounded-xl bg-[#3a3a3a]/95 backdrop-blur-sm px-4 py-3 flex items-center justify-between text-white text-sm shadow-lg">
+            <span class="flex items-center gap-2"><i class="fas fa-check-circle text-[#FFDA00]"></i>收藏成功</span>
+            <a href="#" class="text-white/75 text-xs no-underline whitespace-nowrap">查看全部收藏 &gt;</a>
+        </div>
+    </div>
+
+    <div id="sheet-buy" class="idle-overlay idle-overlay--bottom">
+        <a href="#" class="idle-backdrop" aria-label="关闭"></a>
+        <div class="idle-buy-panel">
+            <div class="shrink-0 flex gap-3 px-4 pt-4 pb-3 border-b border-[#FAF0E6]">
+                <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=200&q=80" alt="" class="w-[88px] h-[88px] rounded-lg object-cover border border-[#E8D5C4] shrink-0">
+                <div class="flex-1 min-w-0 pt-0.5">
+                    <p class="text-[22px] font-bold vintage-price leading-tight mb-1">¥59.00</p>
+                    <p class="text-xs text-[#C9A882] leading-snug">请选择 颜色、尺码</p>
+                </div>
+                <a href="#" class="w-9 h-9 shrink-0 flex items-center justify-center text-[#C9A882] text-2xl font-light leading-none no-underline" aria-label="关闭">&times;</a>
+            </div>
+            <div class="idle-buy-scroll px-4 py-3 pb-2">
+                <p class="text-[13px] text-[#5C4033] font-medium mb-2">颜色</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="px-3.5 py-2 rounded-md bg-[#FFFBF5] border border-[#E8D5C4] text-sm text-[#5C4033]">0690蓝色</span>
+                    <span class="px-3.5 py-2 rounded-md bg-[#FFFBF5] border border-[#E8D5C4] text-sm text-[#5C4033]">0690墨绿色</span>
+                </div>
+                <p class="text-[13px] text-[#5C4033] font-medium mb-2">尺码</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="w-11 h-11 flex items-center justify-center rounded-md bg-[#FFFBF5] border border-[#E8D5C4] text-sm text-[#5C4033]">S</span>
+                    <span class="w-11 h-11 flex items-center justify-center rounded-md bg-[#FFFBF5] border border-[#E8D5C4] text-sm text-[#5C4033]">M</span>
+                    <span class="w-11 h-11 flex items-center justify-center rounded-md bg-[#FFFBF5] border border-[#E8D5C4] text-sm text-[#5C4033]">L</span>
+                    <span class="w-11 h-11 flex items-center justify-center rounded-md bg-[#FFFBF5] border border-[#E8D5C4] text-sm text-[#5C4033]">XL</span>
+                    <span class="w-11 h-11 flex items-center justify-center rounded-md bg-[#FFFBF5] border border-[#E8D5C4] text-sm text-[#5C4033]">2XL</span>
+                </div>
+                <div class="flex items-center justify-between py-1">
+                    <span class="text-sm text-[#5C4033]">购买数量</span>
+                    <div class="flex items-center rounded-full border border-[#E8D5C4] overflow-hidden bg-[#FFFBF5]">
+                        <button type="button" class="w-10 h-9 text-lg text-[#C9A882] border-0 bg-transparent cursor-default">−</button>
+                        <span class="w-10 text-center text-sm font-medium border-x border-[#E8D5C4]">1</span>
+                        <button type="button" class="w-10 h-9 text-lg text-[#C9A882] border-0 bg-transparent cursor-default">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="idle-buy-footer">
+                <a href="#" class="block w-full py-3.5 rounded-full text-center text-[16px] font-semibold text-black bg-[#FFDA00] border border-[#E8CF00] no-underline">立即购买</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
