@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发闲置 - 古着商城</title>
+    <link rel="stylesheet" href="../../uno.css?v=__ASSET_VERSION__">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=__ASSET_VERSION__">
+    <script src="../../scrollbar-control.js?v=__ASSET_VERSION__"></script>
+    <style>
+        .publish-overlay { position: fixed; inset: 0; z-index: 100; display: flex; align-items: flex-end; justify-content: stretch; visibility: hidden; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, visibility 0.2s; }
+        .publish-overlay:target { visibility: visible; opacity: 1; pointer-events: auto; }
+        .publish-overlay-backdrop { position: absolute; inset: 0; background: rgba(45, 28, 19, 0.42); }
+        .publish-sheet { position: relative; width: 100%; background: #fff; border-radius: 18px 18px 0 0; box-shadow: 0 -8px 32px rgba(45, 28, 19, 0.12); max-height: 88vh; overflow-y: auto; padding-bottom: env(safe-area-inset-bottom); }
+        .publish-radio-on { width: 18px; height: 18px; border-radius: 9999px; border: 2px solid #876635; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .publish-radio-on::after { content: ''; width: 8px; height: 8px; border-radius: 9999px; background: #876635; }
+        .publish-radio-off { width: 18px; height: 18px; border-radius: 9999px; border: 2px solid #D1D1CC; flex-shrink: 0; }
+        .publish-cta { background: #E8C547; color: #2D1C13; border: 1px solid rgba(201, 162, 39, 0.45); font-weight: 600; border-radius: 9999px; }
+        .publish-cta:active { filter: brightness(0.96); transform: scale(0.99); }
+    </style>
+</head>
+<body class="vintage-bg" style="margin:0;padding:0;">
+    <header class="bg-white sticky top-0 z-40 safe-top border-b border-[#E8E5E0]">
+        <div class="flex items-center justify-between px-3 py-3">
+            <a href="#" class="w-10 h-10 flex items-center justify-center text-[#2D1C13] text-xl leading-none" aria-label="关闭">&times;</a>
+            <h1 class="text-base font-semibold vintage-card-title flex-1 text-center">发闲置</h1>
+            <div class="w-10 h-10 flex flex-col items-center justify-center gap-0.5 opacity-70" aria-hidden="true">
+                <span class="block w-1 h-1 rounded-full bg-[#857C72]"></span>
+                <span class="block w-1 h-1 rounded-full bg-[#857C72]"></span>
+                <span class="block w-1 h-1 rounded-full bg-[#857C72]"></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-3 pt-3 pb-32">
+        <section class="bg-white rounded-xl card-shadow border border-[#E8E5E0] p-3 mb-3">
+            <textarea rows="7" placeholder="描述宝贝的品牌型号、功能成色、出手原因..." class="w-full resize-none bg-transparent text-sm text-[#2D1C13] placeholder-[#857C72] outline-none leading-relaxed"></textarea>
+            <a href="#sheet-photo" class="mt-3 flex flex-col items-center justify-center w-[112px] h-[112px] rounded-xl border-2 border-dashed border-[#D1D1CC] bg-[#FAFAF8] text-[#857C72]">
+                <span class="text-2xl font-light leading-none mb-1">+</span>
+                <span class="text-[11px] text-center px-1 leading-snug">添加优质<br>首图更吸引人~</span>
+            </a>
+            <div class="flex items-center justify-between gap-2 mt-4">
+                <span class="inline-flex items-center rounded-full bg-[#F5F3F0] border border-[#E8E5E0] px-3 py-1.5 text-xs text-[#2D1C13]"><i class="fas fa-location-dot text-[10px] mr-1 text-[#876635]"></i>深圳·光明区</span>
+                <button type="button" class="inline-flex items-center gap-1 rounded-full border border-[#E8E5E0] bg-white px-3 py-1.5 text-xs text-[#2D1C13] shrink-0">
+                    <span class="text-sm" aria-hidden="true">🐥</span>AI 帮你写
+                </button>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-xl card-shadow border border-[#E8E5E0] overflow-hidden mb-3">
+            <button type="button" class="w-full flex items-center justify-between px-4 py-4 border-b border-[#F5F3F0] text-left">
+                <span class="text-sm vintage-card-title">价格</span>
+                <span class="flex items-center gap-1 text-sm text-[#857C72]">¥0.00<i class="fas fa-chevron-right text-[10px] opacity-60"></i></span>
+            </button>
+            <a href="#sheet-shipping" class="flex items-center justify-between px-4 py-4 text-left">
+                <span class="text-sm vintage-card-title">发货方式</span>
+                <span class="flex items-center gap-1 text-sm text-[#857C72]">邮寄 (运费未填)<i class="fas fa-chevron-right text-[10px] opacity-60"></i></span>
+            </a>
+        </section>
+
+        <details class="text-[11px] vintage-muted px-1">
+            <summary class="cursor-pointer outline-none">原型 Sheet</summary>
+            <div class="flex flex-wrap gap-3 mt-2 pb-2">
+                <a href="#sheet-shipping" class="underline">运费填写</a>
+                <a href="#sheet-shipping-by" class="underline">包邮态</a>
+                <a href="#sheet-photo" class="underline">相册</a>
+            </div>
+        </details>
+    </main>
+
+    <div class="fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-sm border-t border-[#E8E5E0] safe-bottom px-3 pt-3 pb-4">
+        <button type="button" class="publish-cta w-full py-3.5 text-base tracking-wide">发布</button>
+    </div>
+
+    <div id="sheet-shipping" class="publish-overlay">
+        <a href="#" class="publish-overlay-backdrop" aria-label="关闭"></a>
+        <div class="publish-sheet">
+            <div class="flex items-center justify-between px-4 pt-4 pb-2 border-b border-[#F5F3F0]">
+                <span class="w-9"></span>
+                <h2 class="text-[15px] font-semibold vintage-card-title">发货方式：运费 ¥0.00</h2>
+                <a href="#" class="w-9 h-9 flex items-center justify-center text-[#2D1C13] text-xl leading-none" aria-label="关闭">&times;</a>
+            </div>
+            <div class="px-4 pt-2">
+                <div class="divide-y divide-[#F5F3F0]">
+                    <div class="flex items-center gap-3 py-3.5">
+                        <span class="publish-radio-on"></span>
+                        <span class="text-sm text-[#2D1C13]">自己填</span>
+                    </div>
+                    <div class="flex items-center gap-3 py-3.5">
+                        <span class="publish-radio-off"></span>
+                        <span class="text-sm text-[#2D1C13]">包邮</span>
+                    </div>
+                    <div class="flex items-center gap-3 py-3.5">
+                        <span class="publish-radio-off"></span>
+                        <span class="text-sm text-[#2D1C13]">按买家距离估算</span>
+                    </div>
+                </div>
+                <input type="text" inputmode="decimal" placeholder="¥0.00" class="mt-2 w-full rounded-xl border border-[#E8E5E0] bg-[#FAFAF8] px-4 py-3 text-sm text-[#2D1C13] placeholder-[#857C72] outline-none">
+                <div class="mt-4 rounded-xl border border-[#E8E5E0] bg-[#FAFAF8] px-4 py-3 flex items-center gap-3">
+                    <span class="publish-radio-off"></span>
+                    <span class="text-sm text-[#2D1C13]">自提</span>
+                </div>
+                <a href="#" class="publish-cta flex items-center justify-center w-full py-3.5 mt-6 mb-5 text-base font-semibold">确定</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="sheet-shipping-by" class="publish-overlay">
+        <a href="#" class="publish-overlay-backdrop" aria-label="关闭"></a>
+        <div class="publish-sheet">
+            <div class="flex items-center justify-between px-4 pt-4 pb-2 border-b border-[#F5F3F0]">
+                <span class="w-9"></span>
+                <h2 class="text-[15px] font-semibold vintage-card-title">发货方式: 包邮</h2>
+                <a href="#" class="w-9 h-9 flex items-center justify-center text-[#2D1C13] text-xl leading-none" aria-label="关闭">&times;</a>
+            </div>
+            <div class="px-4 pt-2">
+                <div class="divide-y divide-[#F5F3F0]">
+                    <div class="flex items-center gap-3 py-3.5">
+                        <span class="publish-radio-off"></span>
+                        <span class="text-sm text-[#2D1C13]">自己填</span>
+                    </div>
+                    <div class="flex items-center gap-3 py-3.5">
+                        <span class="publish-radio-on"></span>
+                        <span class="text-sm text-[#2D1C13]">包邮</span>
+                    </div>
+                    <div class="flex items-center gap-3 py-3.5">
+                        <span class="publish-radio-off"></span>
+                        <span class="text-sm text-[#2D1C13]">按买家距离估算</span>
+                    </div>
+                </div>
+                <input type="text" inputmode="decimal" placeholder="¥0.00" class="mt-2 w-full rounded-xl border border-[#E8E5E0] bg-[#FAFAF8] px-4 py-3 text-sm text-[#857C72] outline-none" disabled value="">
+                <div class="mt-4 rounded-xl border border-[#E8E5E0] bg-[#FAFAF8] px-4 py-3 flex items-center gap-3">
+                    <span class="publish-radio-off"></span>
+                    <span class="text-sm text-[#2D1C13]">自提</span>
+                </div>
+                <a href="#" class="publish-cta flex items-center justify-center w-full py-3.5 mt-6 mb-5 text-base font-semibold">确定</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="sheet-photo" class="publish-overlay">
+        <a href="#" class="publish-overlay-backdrop" aria-label="关闭"></a>
+        <div class="publish-sheet pt-2">
+            <div class="px-4 pb-2 space-y-0 border-b border-[#F5F3F0]">
+                <a href="#" class="block text-center py-4 text-[15px] text-[#2D1C13] border-b border-[#F5F3F0]">拍摄</a>
+                <a href="#" class="block text-center py-4 text-[15px] text-[#2D1C13] border-b border-[#F5F3F0]">从手机相册选择</a>
+                <a href="#" class="block text-center py-4 text-[15px] text-[#2D1C13]">从聊天会话选择</a>
+            </div>
+            <a href="#" class="block text-center py-4 mb-3 text-[15px] text-[#857C72]">取消</a>
+        </div>
+    </div>
+</body>
+</html>
