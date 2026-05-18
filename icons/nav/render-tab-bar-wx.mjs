@@ -78,7 +78,8 @@ async function buildIcon(svgStr) {
 }
 
 const uiRoot = join(__dirname, '..', '..')
-const appTabDir = join(uiRoot, '..', 'app.vintage.loongzero.com', 'static', 'tab')
+const appTabDirLegacy = join(uiRoot, '..', 'app.vintage.loongzero.com', 'static', 'tab')
+const appTabDirUniX = join(uiRoot, '..', '..', 'uniappx', 'app.vintage.loongzero.com', 'static', 'tab')
 
 function writeAndCheck(absPath, buf) {
   writeFileSync(absPath, buf)
@@ -89,7 +90,9 @@ function writeAndCheck(absPath, buf) {
 }
 
 async function main() {
-  mkdirSync(appTabDir, { recursive: true })
+  for (const dir of [appTabDirLegacy, appTabDirUniX]) {
+    mkdirSync(dir, { recursive: true })
+  }
 
   for (const { name, file } of ICONS) {
     const raw = readFileSync(join(iconsDir, file), 'utf8')
@@ -104,12 +107,16 @@ async function main() {
 
         if (tid === 'warm-earth') {
           const appName = APP_NAMES[name][st]
-          writeAndCheck(join(appTabDir, appName), buf)
+          for (const dir of [appTabDirLegacy, appTabDirUniX]) {
+            writeAndCheck(join(dir, appName), buf)
+          }
         }
       }
     }
   }
-  console.log(`[tab:wx] 已生成 ${CANVAS}×${CANVAS} PNG（图形 ≤${ICON_MAX}px），并同步到 app static/tab`)
+  console.log(
+    `[tab:wx] 已生成 ${CANVAS}×${CANVAS} PNG（图形 ≤${ICON_MAX}px），并同步到 legacy app 与 uniappx static/tab`
+  )
 }
 
 main().catch((e) => {
